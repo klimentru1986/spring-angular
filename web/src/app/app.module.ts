@@ -15,8 +15,7 @@ import { CustomerModule } from './customer/customer.module';
     BrowserAnimationsModule,
     RouterModule,
     AppRouterModule,
-    SharedModule,
-    CustomerModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
