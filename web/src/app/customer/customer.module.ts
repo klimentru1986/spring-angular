@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CustomersListComponent } from './components/customers-list/customers-list.component';
 import { CustomerApiService } from './services/customer-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     CommonModule,
     HttpClientModule,
     RouterModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   declarations: [CustomerComponent, CustomersListComponent],
   providers: [CustomerApiService]

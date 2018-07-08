@@ -9,7 +9,9 @@
 
 .content {
     grid-area: content;
-    background: orange;
+    height: 100%;
+    padding-top: 30px;
+    box-sizing: border-box;
 }
 
 .container {

@@ -1,3 +1,42 @@
-<p>
-  customers-list works!
-</p>
+<div class="container">
+
+  <table mat-table
+    *ngIf="customer$|async as customer"
+    [dataSource]="customer"
+    class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell
+        *matHeaderCellDef> Номер </th>
+      <td mat-cell
+        *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell
+        *matHeaderCellDef> Фамилия </th>
+      <td mat-cell
+        *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell
+        *matHeaderCellDef> Имя </th>
+      <td mat-cell
+        *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell
+        *matHeaderCellDef> Электронная почта </th>
+      <td mat-cell
+        *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <tr mat-header-row
+      *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
