@@ -14,13 +14,14 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override    public List<Customer> getCustomers() {
+    @Override
+    public List<Customer> getCustomers() {
         Session session = sessionFactory.getCurrentSession();
         List<Customer> customers;
 
         try {
             session.beginTransaction();
-        customers = session.createQuery("from Customer").getResultList();
+            customers = session.createQuery("from Customer").getResultList();
             session.getTransaction().commit();
 
         } finally {
@@ -28,5 +29,22 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
 
         return customers;
+    }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Customer customer;
+
+        try {
+            session.beginTransaction();
+            customer = session.get(Customer.class, id);
+            session.getTransaction().commit();
+
+        } finally {
+            session.close();
+        }
+
+        return customer;
     }
 }

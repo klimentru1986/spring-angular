@@ -1,4 +1,4 @@
-package spring.angular.DTO;
+package spring.angular.controllers.customer;
 
 import lombok.Data;
 

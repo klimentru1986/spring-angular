@@ -1,11 +1,10 @@
-package spring.angular.controllers;
+package spring.angular.controllers.customer;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import spring.angular.DAO.customer.CustomerDAO;
-import spring.angular.DTO.CustomerDTO;
 import spring.angular.domain.entity.Customer;
 import spring.angular.services.customer.CustomerService;
 
@@ -31,5 +30,16 @@ public class CustomerController {
                 .collect(Collectors.toList());
 
         return customers;
+    }
+
+    @RequestMapping("/{id}")
+    public CustomerDTO getCustomerById(@PathVariable long id) {
+        Customer customerEntity = customerService.getCustomerById(id);
+
+        if (customerEntity == null) {
+            throw new CustomerNotFoundException("Customer not found. id:" + id);
+        }
+
+        return modelMapper.map(customerEntity, CustomerDTO.class);
     }
 }
