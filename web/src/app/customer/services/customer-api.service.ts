@@ -8,9 +8,15 @@ import { Customer } from '../models/customer.model';
 export class CustomerApiService {
   constructor(private http: HttpClient) {}
 
-  getCustomvers(): Observable<Customer> {
+  getCustomers(): Observable<Customer> {
     const url = '/api/customer';
 
     return this.http.get<Customer>(url);
+  }
+
+  deleteCustomer(id: number): Observable<null> {
+    const url = `/api/customer/${id}`;
+
+    return this.http.delete<null>(url);
   }
 }

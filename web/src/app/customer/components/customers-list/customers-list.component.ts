@@ -10,12 +10,32 @@ import { Customer } from '../../models/customer.model';
   styleUrls: ['./customers-list.component.css']
 })
 export class CustomersListComponent implements OnInit {
-  customer$: Observable<Customer>;
-  displayedColumns: string[] = ['id', 'lastName', 'firstName', 'email'];
+  customer: Customer;
+  displayedColumns: string[] = [
+    'id',
+    'lastName',
+    'firstName',
+    'email',
+    'delete'
+  ];
 
   constructor(private customerAPI: CustomerApiService) {}
 
   ngOnInit() {
-    this.customer$ = this.customerAPI.getCustomvers().pipe(first());
+    this.getCustomers();
+  }
+
+  deleteCustomer(id: number): void {
+    this.customerAPI
+      .deleteCustomer(id)
+      .pipe(first())
+      .subscribe(() => this.getCustomers());
+  }
+
+  private getCustomers(): void {
+    this.customerAPI
+      .getCustomers()
+      .pipe(first())
+      .subscribe(c => (this.customer = c));
   }
 }
