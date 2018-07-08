@@ -1,10 +1,13 @@
 package spring.angular.config;
 
-import com.sun.xml.internal.fastinfoset.sax.Properties;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import spring.angular.domain.entity.Customer;
+
+import java.io.IOException;
+
 
 @org.springframework.context.annotation.Configuration
 public class AppConfig {
@@ -16,6 +19,12 @@ public class AppConfig {
 
     @Bean
     public SessionFactory getSessionFactory() {
-        return this.sessionFactory;
+        return sessionFactory;
     }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
+
 }
