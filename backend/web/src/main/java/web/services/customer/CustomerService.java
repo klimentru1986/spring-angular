@@ -11,4 +11,6 @@ public interface CustomerService {
     public Customer getCustomerById(Long id);
 
     public Customer saveOrUpdate(Customer customer);
+
+    public Long deleteCustomer(Long id);
 }

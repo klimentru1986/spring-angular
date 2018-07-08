@@ -41,7 +41,7 @@ public class CustomerController {
         return modelMapper.map(customerEntity, CustomerDTO.class);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public CustomerDTO createCustomer(@RequestBody CustomerDTO customerDTO) {
         customerDTO.setId(0);
         Customer customer = modelMapper.map(customerDTO, Customer.class);
@@ -51,7 +51,7 @@ public class CustomerController {
     }
 
 
-    @PutMapping("/update")
+    @PutMapping
     public CustomerDTO updateCustomer(@RequestBody CustomerDTO customerDTO) {
         Customer customer = modelMapper.map(customerDTO, Customer.class);
         Customer customerEntity = customerService.getCustomerById(customer.getId());
@@ -63,5 +63,10 @@ public class CustomerController {
         Customer newCustomer = customerService.saveOrUpdate(customer);
 
         return modelMapper.map(newCustomer, CustomerDTO.class);
+    }
+
+    @DeleteMapping("{id}")
+    public Long deleteCustomer(@PathVariable Long id) {
+        return customerService.deleteCustomer(id);
     }
 }

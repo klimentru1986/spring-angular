@@ -27,4 +27,9 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer saveOrUpdate(Customer customer) {
         return customerDAO.saveOrUpdateCustomer(customer);
     }
+
+    @Override
+    public Long deleteCustomer(Long id) {
+        return customerDAO.deleteCustomer(id);
+    }
 }

@@ -64,4 +64,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         return customer;
     }
+
+    @Override
+    public Long deleteCustomer(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        try {
+            session.beginTransaction();
+            session.createQuery("delete from Customer where id=" + id).executeUpdate();
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+
+        return id;
+    }
 }

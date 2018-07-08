@@ -11,4 +11,6 @@ public interface CustomerDAO {
     public Customer getCustomerById(Long id);
 
     public Customer saveOrUpdateCustomer(Customer customer);
+
+    public Long deleteCustomer(Long id);
 }
