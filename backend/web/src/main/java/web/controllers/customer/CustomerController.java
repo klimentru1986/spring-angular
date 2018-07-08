@@ -2,9 +2,7 @@ package web.controllers.customer;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.domain.entity.Customer;
 import web.services.customer.CustomerService;
 
@@ -21,7 +19,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @RequestMapping
+    @GetMapping
     public List<CustomerDTO> getCustomers() {
         List<Customer> customersEntity = customerService.getCustomers();
         List<CustomerDTO> customers = customersEntity
@@ -32,7 +30,7 @@ public class CustomerController {
         return customers;
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public CustomerDTO getCustomerById(@PathVariable long id) {
         Customer customerEntity = customerService.getCustomerById(id);
 
@@ -41,5 +39,29 @@ public class CustomerController {
         }
 
         return modelMapper.map(customerEntity, CustomerDTO.class);
+    }
+
+    @PostMapping("/create")
+    public CustomerDTO createCustomer(@RequestBody CustomerDTO customerDTO) {
+        customerDTO.setId(0);
+        Customer customer = modelMapper.map(customerDTO, Customer.class);
+        Customer newCustomer = customerService.saveOrUpdate(customer);
+
+        return modelMapper.map(newCustomer, CustomerDTO.class);
+    }
+
+
+    @PutMapping("/update")
+    public CustomerDTO updateCustomer(@RequestBody CustomerDTO customerDTO) {
+        Customer customer = modelMapper.map(customerDTO, Customer.class);
+        Customer customerEntity = customerService.getCustomerById(customer.getId());
+
+        if (customerEntity == null) {
+            throw new CustomerNotFoundException("Customer not found. id:" + customerDTO.getId());
+        }
+
+        Customer newCustomer = customerService.saveOrUpdate(customer);
+
+        return modelMapper.map(newCustomer, CustomerDTO.class);
     }
 }
