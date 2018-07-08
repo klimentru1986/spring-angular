@@ -1,4 +1,4 @@
-package spring.angular;
+package web;
 
 import static org.junit.Assert.assertTrue;
 

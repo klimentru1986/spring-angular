@@ -1,10 +1,9 @@
-package spring.angular.services.customer;
+package web.services.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spring.angular.DAO.customer.CustomerDAO;
-import spring.angular.domain.entity.Customer;
-import spring.angular.services.customer.CustomerService;
+import web.DAO.customer.CustomerDAO;
+import web.domain.entity.Customer;
 
 import java.util.List;
 

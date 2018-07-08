@@ -1,6 +1,6 @@
-package spring.angular.services.customer;
+package web.services.customer;
 
-import spring.angular.domain.entity.Customer;
+import web.domain.entity.Customer;
 
 import java.util.List;
 

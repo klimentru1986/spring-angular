@@ -1,10 +1,10 @@
-package spring.angular.DAO.customer;
+package web.DAO.customer;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import spring.angular.domain.entity.Customer;
+import web.domain.entity.Customer;
 
 import java.util.List;
 

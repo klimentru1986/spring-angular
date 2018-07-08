@@ -1,4 +1,4 @@
-package spring.angular.domain.entity;
+package web.domain.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.RowId;

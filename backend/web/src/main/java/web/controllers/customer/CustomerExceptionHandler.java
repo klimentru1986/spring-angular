@@ -1,12 +1,9 @@
-package spring.angular.controllers.customer;
+package web.controllers.customer;
 
-import org.apache.tomcat.jni.Status;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import java.rmi.StubNotFoundException;
 
 @ControllerAdvice
 public class CustomerExceptionHandler {

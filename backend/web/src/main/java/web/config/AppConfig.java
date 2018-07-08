@@ -1,12 +1,10 @@
-package spring.angular.config;
+package web.config;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
-import spring.angular.domain.entity.Customer;
-
-import java.io.IOException;
+import web.domain.entity.Customer;
 
 
 @org.springframework.context.annotation.Configuration

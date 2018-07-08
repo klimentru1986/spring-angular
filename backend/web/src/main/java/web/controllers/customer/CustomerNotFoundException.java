@@ -1,4 +1,4 @@
-package spring.angular.controllers.customer;
+package web.controllers.customer;
 
 public class CustomerNotFoundException extends RuntimeException {
     public CustomerNotFoundException() {

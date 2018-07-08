@@ -1,12 +1,12 @@
-package spring.angular.controllers.customer;
+package web.controllers.customer;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import spring.angular.domain.entity.Customer;
-import spring.angular.services.customer.CustomerService;
+import web.domain.entity.Customer;
+import web.services.customer.CustomerService;
 
 import java.util.List;
 import java.util.stream.Collectors;

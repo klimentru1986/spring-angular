@@ -1,4 +1,4 @@
-package spring.angular.controllers.customer;
+package web.controllers.customer;
 
 import lombok.Data;
 
