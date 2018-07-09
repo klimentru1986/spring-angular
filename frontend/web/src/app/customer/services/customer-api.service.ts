@@ -6,17 +6,19 @@ import { Customer } from '../models/customer.model';
 
 @Injectable()
 export class CustomerApiService {
+  private url = '/api/customer';
+
   constructor(private http: HttpClient) {}
 
   getCustomers(): Observable<Customer> {
-    const url = '/api/customer';
+    return this.http.get<Customer>(this.url);
+  }
 
-    return this.http.get<Customer>(url);
+  createCustomer(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(this.url, customer);
   }
 
   deleteCustomer(id: number): Observable<null> {
-    const url = `/api/customer/${id}`;
-
-    return this.http.delete<null>(url);
+    return this.http.delete<null>(`${this.url}/${id}`);
   }
 }

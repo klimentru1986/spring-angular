@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Customer } from '../../models/customer.model';
 
 @Component({
   selector: 'app-customer-form',
@@ -7,12 +8,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./customer-form.component.css']
 })
 export class CustomerFormComponent implements OnInit {
+  @Output() submit: EventEmitter<Customer> = new EventEmitter();
   customerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.customerForm = this.initForm();
+  }
+
+  onSubmit(): void {
+    if (this.customerForm.invalid) {
+      Object.values(this.customerForm.controls).forEach(c => c.markAsTouched());
+      return;
+    }
+
+    this.submit.emit(this.customerForm.value);
   }
 
   private initForm(): FormGroup {

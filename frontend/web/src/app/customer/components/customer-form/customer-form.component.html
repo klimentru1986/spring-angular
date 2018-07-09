@@ -1,5 +1,6 @@
 <form class="customer-form"
-  [formGroup]="customerForm">
+  [formGroup]="customerForm"
+  (submit)="onSubmit()">
   <mat-form-field class="customer-full-width">
     <input matInput
       formControlName="lastName"
@@ -19,6 +20,6 @@
       placeholder="Электронная почта">
   </mat-form-field>
 
-  <button mat-raised-button
+  <button mat-raised-button type="submit"
     color="primary">Добавить</button>
 </form>
