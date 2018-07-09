@@ -28,7 +28,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         return entityManager.find(Customer.class, id);
     }
 
-
     @Override
     public Customer saveOrUpdateCustomer(Customer customer) {
         return entityManager.merge(customer);
