@@ -33,6 +33,18 @@
         *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="update">
+      <th mat-header-cell
+        *matHeaderCellDef> </th>
+      <td mat-cell
+        *matCellDef="let element">
+        <a class="update"
+          routerLink="/customer/edit/{{element.id}}">
+          <i class="material-icons">edit</i>
+        </a>
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="delete">
       <th mat-header-cell
         *matHeaderCellDef> </th>

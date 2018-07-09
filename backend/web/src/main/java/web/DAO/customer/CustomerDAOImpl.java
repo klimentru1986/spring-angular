@@ -20,7 +20,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> getCustomers() {
-        return entityManager.createQuery("from Customer").getResultList();
+        return entityManager.createQuery("from Customer order by id").getResultList();
     }
 
     @Override

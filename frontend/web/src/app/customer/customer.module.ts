@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CustomerFormComponent } from './components/customer-form/customer-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
+import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: 'list', component: CustomersListComponent },
-      { path: 'create', component: CreateCustomerComponent }
+      { path: 'create', component: CreateCustomerComponent },
+      { path: 'edit/:id', component: EditCustomerComponent }
     ]
   }
 ];
@@ -35,7 +37,8 @@ const routes: Routes = [
     CustomerComponent,
     CustomersListComponent,
     CustomerFormComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+    EditCustomerComponent
   ],
   providers: [CustomerApiService]
 })

@@ -10,12 +10,13 @@ import { Customer } from '../../models/customer.model';
   styleUrls: ['./customers-list.component.css']
 })
 export class CustomersListComponent implements OnInit {
-  customer: Customer;
+  customer: Customer[];
   displayedColumns: string[] = [
     'id',
     'lastName',
     'firstName',
     'email',
+    'update',
     'delete'
   ];
 

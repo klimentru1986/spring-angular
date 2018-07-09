@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Customer } from '../../models/customer.model';
 
@@ -8,13 +8,17 @@ import { Customer } from '../../models/customer.model';
   styleUrls: ['./customer-form.component.css']
 })
 export class CustomerFormComponent implements OnInit {
-  @Output() submit: EventEmitter<Customer> = new EventEmitter();
+  @Input() customer: Customer;
+  @Output() submitEv: EventEmitter<Customer> = new EventEmitter();
   customerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.customerForm = this.initForm();
+    if (this.customer) {
+      this.customerForm.patchValue(this.customer);
+    }
   }
 
   onSubmit(): void {
@@ -23,7 +27,7 @@ export class CustomerFormComponent implements OnInit {
       return;
     }
 
-    this.submit.emit(this.customerForm.value);
+    this.submitEv.emit(this.customerForm.value);
   }
 
   private initForm(): FormGroup {

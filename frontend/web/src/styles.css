@@ -7,4 +7,10 @@ body {
     height: 100%;
     margin: 0;
     box-sizing: border-box;
+    color: #333;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
 }

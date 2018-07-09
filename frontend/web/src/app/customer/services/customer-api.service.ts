@@ -10,14 +10,21 @@ export class CustomerApiService {
 
   constructor(private http: HttpClient) {}
 
-  getCustomers(): Observable<Customer> {
-    return this.http.get<Customer>(this.url);
+  getCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.url);
+  }
+
+  getCustomerById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(`${this.url}/${id}`);
   }
 
   createCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(this.url, customer);
   }
 
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(this.url, customer);
+  }
   deleteCustomer(id: number): Observable<null> {
     return this.http.delete<null>(`${this.url}/${id}`);
   }
