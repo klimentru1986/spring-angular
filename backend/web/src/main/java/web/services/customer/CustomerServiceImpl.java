@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Long deleteCustomer(Long id) {
-        return customerDAO.deleteCustomer(id);
+    public void deleteCustomer(Long id) {
+        customerDAO.deleteCustomer(id);
     }
 }

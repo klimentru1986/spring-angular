@@ -4,79 +4,39 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.domain.entity.Customer;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@Transactional
 public class CustomerDAOImpl implements CustomerDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public List<Customer> getCustomers() {
-        Session session = sessionFactory.getCurrentSession();
-        List<Customer> customers;
-
-        try {
-            session.beginTransaction();
-            customers = session.createQuery("from Customer").getResultList();
-            session.getTransaction().commit();
-
-        } finally {
-            session.close();
-        }
-
-        return customers;
+        return entityManager.createQuery("from Customer").getResultList();
     }
 
     @Override
     public Customer getCustomerById(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-        Customer customer;
-
-        try {
-            session.beginTransaction();
-            customer = session.get(Customer.class, id);
-            session.getTransaction().commit();
-
-        } finally {
-            session.close();
-        }
-
-        return customer;
+        return entityManager.find(Customer.class, id);
     }
 
 
     @Override
     public Customer saveOrUpdateCustomer(Customer customer) {
-        Session session = sessionFactory.getCurrentSession();
-
-        try {
-            session.beginTransaction();
-            session.saveOrUpdate(customer);
-            session.getTransaction().commit();
-
-        } finally {
-            session.close();
-        }
-
-        return customer;
+        return entityManager.merge(customer);
     }
 
     @Override
-    public Long deleteCustomer(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-
-        try {
-            session.beginTransaction();
-            session.createQuery("delete from Customer where id=" + id).executeUpdate();
-            session.getTransaction().commit();
-        } finally {
-            session.close();
-        }
-
-        return id;
+    public void deleteCustomer(Long id) {
+        Customer customer = getCustomerById(id);
+        entityManager.remove(customer);
     }
 }

@@ -12,5 +12,5 @@ public interface CustomerService {
 
     public Customer saveOrUpdate(Customer customer);
 
-    public Long deleteCustomer(Long id);
+    public void deleteCustomer(Long id);
 }

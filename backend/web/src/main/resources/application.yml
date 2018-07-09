@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/spring_angular
+    username: postgres
+    password: mysecretpassword
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    database: postgresql
+    show_sql: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: true
+hibernate:
+  hbm2ddl:
+    auto: create

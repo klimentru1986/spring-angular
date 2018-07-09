@@ -2,6 +2,8 @@ package web.controllers.customer;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web.domain.entity.Customer;
 import web.services.customer.CustomerService;
@@ -66,7 +68,8 @@ public class CustomerController {
     }
 
     @DeleteMapping("{id}")
-    public Long deleteCustomer(@PathVariable Long id) {
-        return customerService.deleteCustomer(id);
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }
