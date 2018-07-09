@@ -1,0 +1,24 @@
+<form class="customer-form"
+  [formGroup]="customerForm">
+  <mat-form-field class="customer-full-width">
+    <input matInput
+      formControlName="lastName"
+      placeholder="Фамилия">
+  </mat-form-field>
+
+  <mat-form-field class="customer-full-width">
+    <input matInput
+      formControlName="firstName"
+      placeholder="Имя">
+  </mat-form-field>
+
+
+  <mat-form-field class="customer-full-width">
+    <input matInput
+      formControlName="email"
+      placeholder="Электронная почта">
+  </mat-form-field>
+
+  <button mat-raised-button
+    color="primary">Добавить</button>
+</form>
