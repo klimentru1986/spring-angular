@@ -1,0 +1,10 @@
+<mat-sidenav-container class="side-nav-container">
+  <mat-sidenav>Start</mat-sidenav>
+  <mat-sidenav-content>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menu">
+        <a [routerLink]="item.link">{{item.name}}</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

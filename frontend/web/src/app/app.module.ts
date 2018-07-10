@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRouterModule } from './app-router/app-router.module';
-import { CustomerModule } from './customer/customer.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +15,7 @@ import { CustomerModule } from './customer/customer.module';
     BrowserAnimationsModule,
     RouterModule,
     AppRouterModule,
+    CoreModule,
     SharedModule
   ],
   providers: [],
