@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  postgres_local:
+    container_name: postgres_local
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=spring_angular
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - pg_data_volume:/var/lib/postgresql/data/pgdata
+  
+volumes: 
+  pg_data_volume:
+
+

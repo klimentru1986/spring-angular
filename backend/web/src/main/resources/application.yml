@@ -12,6 +12,5 @@ spring:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: true
-hibernate:
-  hbm2ddl:
-    auto: create
+        hbm2ddl:
+          auto: create
