@@ -25,8 +25,7 @@ public class Customer {
     @NotNull
     private String lastName;
 
-    @Column(name = "email")
-    @NotNull
-    private String email;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "additional_info_id")
+    private CustomerAdditionalInfo additionalInfo;
 }
