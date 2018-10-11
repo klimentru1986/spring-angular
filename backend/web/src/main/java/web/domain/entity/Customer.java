@@ -27,5 +27,6 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "additional_info_id")
+    @NotNull
     private CustomerAdditionalInfo additionalInfo;
 }
