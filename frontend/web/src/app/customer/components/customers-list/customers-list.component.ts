@@ -16,6 +16,7 @@ export class CustomersListComponent implements OnInit {
     'lastName',
     'firstName',
     'email',
+    'phone',
     'update',
     'delete'
   ];

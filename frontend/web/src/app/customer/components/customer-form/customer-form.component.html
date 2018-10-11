@@ -13,13 +13,21 @@
       placeholder="Имя">
   </mat-form-field>
 
+  <div formGroupName="additionalInfo">
+    <mat-form-field class="customer-full-width">
+      <input matInput
+        formControlName="email"
+        placeholder="Электронная почта">
+    </mat-form-field>
 
-  <mat-form-field class="customer-full-width">
-    <input matInput
-      formControlName="email"
-      placeholder="Электронная почта">
-  </mat-form-field>
+    <mat-form-field class="customer-full-width">
+      <input matInput
+        formControlName="phone"
+        placeholder="Телефон">
+    </mat-form-field>
+  </div>
 
-  <button mat-raised-button type="submit"
+  <button mat-raised-button
+    type="submit"
     color="primary">Добавить</button>
 </form>

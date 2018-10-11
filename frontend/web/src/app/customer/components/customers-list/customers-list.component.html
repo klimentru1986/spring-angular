@@ -30,7 +30,14 @@
       <th mat-header-cell
         *matHeaderCellDef> Электронная почта </th>
       <td mat-cell
-        *matCellDef="let element"> {{element.email}} </td>
+        *matCellDef="let element"> {{element.additionalInfo.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell
+        *matHeaderCellDef> Телефон </th>
+      <td mat-cell
+        *matCellDef="let element"> {{element.additionalInfo.phone}} </td>
     </ng-container>
 
     <ng-container matColumnDef="update">

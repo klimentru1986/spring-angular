@@ -8,8 +8,10 @@ import { Customer } from '../../models/customer.model';
   styleUrls: ['./customer-form.component.css']
 })
 export class CustomerFormComponent implements OnInit {
-  @Input() customer: Customer;
-  @Output() submitEv: EventEmitter<Customer> = new EventEmitter();
+  @Input()
+  customer: Customer;
+  @Output()
+  submitEv: EventEmitter<Customer> = new EventEmitter();
   customerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -35,7 +37,10 @@ export class CustomerFormComponent implements OnInit {
       id: [null],
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
-      email: [null, [Validators.required, Validators.email]]
+      additionalInfo: this.fb.group({
+        email: [null, [Validators.required, Validators.email]],
+        phone: [null, [Validators.required]]
+      })
     });
   }
 }
