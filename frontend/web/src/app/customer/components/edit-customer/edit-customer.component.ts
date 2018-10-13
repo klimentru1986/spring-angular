@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerApiService } from '../../services/customer-api.service';
 import { Customer } from '../../models/customer.model';
 import { first } from 'rxjs/operators';
+import { CustomerDataService } from 'src/app/store/customer-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-customer',
@@ -10,12 +11,12 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
-  customer: Customer;
+  customer$: Observable<Customer>;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private customerAPI: CustomerApiService
+    private customerData: CustomerDataService
   ) {}
 
   ngOnInit() {
@@ -23,22 +24,20 @@ export class EditCustomerComponent implements OnInit {
   }
 
   onSubmit(customer: Customer): void {
-    this.customerAPI
-      .updateCustomer(customer)
+    this.customerData
+      .update(customer)
       .pipe(first())
       .subscribe(c => this.router.navigateByUrl('/customer/list'));
   }
 
   private getCustomerById(): void {
     const id: number = +this.route.snapshot.params['id'];
+
     if (!id) {
       this.router.navigateByUrl('/customer/list');
       return;
     }
 
-    this.customerAPI
-      .getCustomerById(id)
-      .pipe(first())
-      .subscribe(c => (this.customer = c));
+    this.customer$ = this.customerData.getByKey(id);
   }
 }

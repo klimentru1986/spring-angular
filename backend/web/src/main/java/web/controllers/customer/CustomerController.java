@@ -53,7 +53,7 @@ public class CustomerController {
     }
 
 
-    @PutMapping
+    @PutMapping("{id}")
     public CustomerDTO updateCustomer(@RequestBody CustomerDTO customerDTO) {
         Customer customer = modelMapper.map(customerDTO, Customer.class);
         Customer customerEntity = customerService.getCustomerById(customer.getId());

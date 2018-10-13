@@ -1,7 +1,7 @@
 <div class="container">
 
   <table mat-table
-    *ngIf="customer"
+    *ngIf="customer$| async as customer"
     [dataSource]="customer"
     class="mat-elevation-z8">
 

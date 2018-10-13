@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerApiService } from '../../services/customer-api.service';
-import { first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Customer } from '../../models/customer.model';
+import { CustomerDataService } from 'src/app/store/customer-data.service';
 
 @Component({
   selector: 'app-customers-list',
@@ -10,7 +9,7 @@ import { Customer } from '../../models/customer.model';
   styleUrls: ['./customers-list.component.css']
 })
 export class CustomersListComponent implements OnInit {
-  customer: Customer[];
+  customer$: Observable<Customer[]>;
   displayedColumns: string[] = [
     'id',
     'lastName',
@@ -21,23 +20,14 @@ export class CustomersListComponent implements OnInit {
     'delete'
   ];
 
-  constructor(private customerAPI: CustomerApiService) {}
+  constructor(private customerData: CustomerDataService) {}
 
   ngOnInit() {
-    this.getCustomers();
+    this.customer$ = this.customerData.entities$;
+    this.customerData.load();
   }
 
   deleteCustomer(id: number): void {
-    this.customerAPI
-      .deleteCustomer(id)
-      .pipe(first())
-      .subscribe(() => this.getCustomers());
-  }
-
-  private getCustomers(): void {
-    this.customerAPI
-      .getCustomers()
-      .pipe(first())
-      .subscribe(c => (this.customer = c));
+    this.customerData.delete(id);
   }
 }

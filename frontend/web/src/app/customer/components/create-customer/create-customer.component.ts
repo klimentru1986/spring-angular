@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerApiService } from '../../services/customer-api.service';
 import { Customer } from '../../models/customer.model';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { CustomerDataService } from 'src/app/store/customer-data.service';
 
 @Component({
   selector: 'app-create-customer',
@@ -11,15 +11,15 @@ import { Router } from '@angular/router';
 })
 export class CreateCustomerComponent implements OnInit {
   constructor(
-    private customerAPI: CustomerApiService,
+    private customerData: CustomerDataService,
     private router: Router
   ) {}
 
   ngOnInit() {}
 
   onSubmit(customer: Customer): void {
-    this.customerAPI
-      .createCustomer(customer)
+    this.customerData
+      .add(customer)
       .pipe(first())
       .subscribe(c => this.router.navigateByUrl('/customer/list'));
   }
