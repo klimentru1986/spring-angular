@@ -22,7 +22,12 @@
     "@angular/platform-browser": "^6.1.10",
     "@angular/platform-browser-dynamic": "^6.1.10",
     "@angular/router": "^6.1.10",
+    "@ngrx/effects": "^6.1.0",
+    "@ngrx/entity": "^6.1.0",
+    "@ngrx/store": "^6.1.0",
+    "@ngrx/store-devtools": "^6.1.0",
     "core-js": "^2.5.7",
+    "ngrx-data": "^6.1.0-beta.0",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.26"
   },
