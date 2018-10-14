@@ -21,7 +21,7 @@ public class CustomerController {
     private ModelMapper modelMapper;
 
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
 
     @GetMapping
     public List<CustomerDTO> getCustomers() {
