@@ -1,4 +1,4 @@
-package web.controllers.customer;
+package web.controllers.customer.dto;
 
 import lombok.Data;
 

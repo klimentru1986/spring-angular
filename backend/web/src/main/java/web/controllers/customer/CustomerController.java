@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import web.controllers.customer.dto.CustomerDTO;
+import web.controllers.exceptionHandler.CustomNotFoundException;
 import web.domain.entity.Customer;
 import web.services.customer.CustomerService;
 
@@ -37,7 +39,7 @@ public class CustomerController {
         Customer customerEntity = customerService.getCustomerById(id);
 
         if (customerEntity == null) {
-            throw new CustomerNotFoundException("Customer not found. id:" + id);
+            throw new CustomNotFoundException("Customer not found. id:" + id);
         }
 
         return modelMapper.map(customerEntity, CustomerDTO.class);
@@ -59,7 +61,7 @@ public class CustomerController {
         Customer customerEntity = customerService.getCustomerById(customer.getId());
 
         if (customerEntity == null) {
-            throw new CustomerNotFoundException("Customer not found. id:" + customerDTO.getId());
+            throw new CustomNotFoundException("Customer not found. id:" + customerDTO.getId());
         }
 
         Customer newCustomer = customerService.saveOrUpdate(customer);

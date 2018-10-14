@@ -1,16 +1,15 @@
-package web.controllers;
+package web.controllers.exceptionHandler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import web.controllers.customer.CustomerErrorResponse;
 
 public class CustomExceptionHandler {
 
     @ExceptionHandler
-    ResponseEntity<CustomerErrorResponse> exceptionHandler(Exception exc) {
+    ResponseEntity<CustomErrorResponse> exceptionHandler(Exception exc) {
 
-        CustomerErrorResponse errorResponse = new CustomerErrorResponse();
+        CustomErrorResponse errorResponse = new CustomErrorResponse();
         errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
         errorResponse.setMessage(exc.getMessage());
         errorResponse.setTimeStamp(System.currentTimeMillis());

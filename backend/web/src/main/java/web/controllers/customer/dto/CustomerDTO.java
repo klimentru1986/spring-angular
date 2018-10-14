@@ -1,6 +1,7 @@
-package web.controllers.customer;
+package web.controllers.customer.dto;
 
 import lombok.Data;
+import web.controllers.customer.dto.CustomerAdditionalInfoDTO;
 
 @Data
 public class CustomerDTO {
