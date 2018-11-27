@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddBookComponent } from './components/add-book/add-book.component';
-import { AddBookFormComponent } from './components/add-book-form/add-book-form.component';
 import { SharedModule } from '../shared/shared.module';
+import { BookFormComponent } from './components/book-form/book-form.component';
 
 const routes: Routes = [
   {
@@ -28,6 +28,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule
   ],
-  declarations: [BookComponent, AddBookComponent, AddBookFormComponent]
+  declarations: [BookComponent, AddBookComponent, BookFormComponent]
 })
 export class BookModule {}

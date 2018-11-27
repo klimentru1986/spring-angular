@@ -1,14 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Customer } from 'src/app/customer/models/customer.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Book } from '../../models/book.model';
 
 @Component({
-  selector: 'app-add-book-form',
-  templateUrl: './add-book-form.component.html',
-  styleUrls: ['./add-book-form.component.css']
+  selector: 'app-book-form',
+  templateUrl: './book-form.component.html',
+  styleUrls: ['./book-form.component.css']
 })
-export class AddBookFormComponent implements OnInit {
+export class BookFormComponent implements OnInit {
   @Input()
   book: Book;
   @Output()
