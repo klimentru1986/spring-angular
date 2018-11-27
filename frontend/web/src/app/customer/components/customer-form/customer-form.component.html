@@ -1,33 +1,25 @@
-<form class="customer-form"
-  [formGroup]="customerForm"
-  (submit)="onSubmit()">
+<form class="customer-form" [formGroup]="customerForm" (submit)="onSubmit()">
   <mat-form-field class="customer-full-width">
-    <input matInput
-      formControlName="lastName"
-      placeholder="Фамилия">
+    <input matInput formControlName="lastName" placeholder="Фамилия" />
   </mat-form-field>
 
   <mat-form-field class="customer-full-width">
-    <input matInput
-      formControlName="firstName"
-      placeholder="Имя">
+    <input matInput formControlName="firstName" placeholder="Имя" />
   </mat-form-field>
 
   <div formGroupName="additionalInfo">
     <mat-form-field class="customer-full-width">
-      <input matInput
-        formControlName="email"
-        placeholder="Электронная почта">
+      <input matInput formControlName="email" placeholder="Электронная почта" />
     </mat-form-field>
 
     <mat-form-field class="customer-full-width">
-      <input matInput
-        formControlName="phone"
-        placeholder="Телефон">
+      <input matInput formControlName="phone" placeholder="Телефон" />
     </mat-form-field>
   </div>
 
-  <button mat-raised-button
-    type="submit"
-    color="primary">Добавить</button>
+  <div class="button-container">
+    <button mat-fab type="submit" color="primary">
+      <i class="material-icons">save</i>
+    </button>
+  </div>
 </form>
