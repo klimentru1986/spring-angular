@@ -16,6 +16,6 @@ export class AddBookComponent {
     this.bookData
       .add(book)
       .pipe(first())
-      .subscribe(c => console.log(c));
+      .subscribe(c => this.router.navigateByUrl('/book/list'));
   }
 }

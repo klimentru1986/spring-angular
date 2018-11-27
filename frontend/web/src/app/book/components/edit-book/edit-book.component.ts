@@ -28,7 +28,7 @@ export class EditBookComponent implements OnInit {
     this.bookData
       .update(book)
       .pipe(first())
-      .subscribe(c => this.router.navigateByUrl('/customer/list'));
+      .subscribe(c => this.router.navigateByUrl('/book/list'));
   }
 
   private getBookById(): void {

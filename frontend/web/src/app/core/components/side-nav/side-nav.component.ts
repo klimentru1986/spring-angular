@@ -17,6 +17,10 @@ export class SideNavComponent {
       link: '/customer/create'
     },
     {
+      name: 'Список книг',
+      link: '/book/list'
+    },
+    {
       name: 'Добавить книгу',
       link: '/book/add'
     }

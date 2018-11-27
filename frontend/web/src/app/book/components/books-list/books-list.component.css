@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+}
+
+.mat-elevation-z8 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.delete {
+    cursor: pointer;
+}
