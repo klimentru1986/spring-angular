@@ -1,0 +1,15 @@
+<form class="book-form" [formGroup]="bookForm" (submit)="onSubmit()">
+  <mat-form-field class="book-full-width">
+    <input matInput formControlName="author" placeholder="Автор" />
+  </mat-form-field>
+
+  <mat-form-field class="book-full-width">
+    <input matInput formControlName="title" placeholder="Название" />
+  </mat-form-field>
+
+  <mat-form-field class="book-full-width">
+    <input matInput formControlName="year" placeholder="Год" />
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary">Добавить</button>
+</form>

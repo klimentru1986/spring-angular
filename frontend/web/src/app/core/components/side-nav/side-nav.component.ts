@@ -15,6 +15,10 @@ export class SideNavComponent {
     {
       name: 'Добавить пользователя',
       link: '/customer/create'
+    },
+    {
+      name: 'Добавить книгу',
+      link: '/book/add'
     }
   ];
 }
