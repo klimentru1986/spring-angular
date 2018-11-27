@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { SharedModule } from '../shared/shared.module';
 import { BookFormComponent } from './components/book-form/book-form.component';
+import { EditBookComponent } from './components/edit-book/edit-book.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     component: BookComponent,
     children: [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
-      { path: 'add', component: AddBookComponent }
+      { path: 'add', component: AddBookComponent },
+      { path: 'edit/:id', component: EditBookComponent }
     ]
   }
 ];
@@ -28,6 +30,11 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule
   ],
-  declarations: [BookComponent, AddBookComponent, BookFormComponent]
+  declarations: [
+    BookComponent,
+    AddBookComponent,
+    BookFormComponent,
+    EditBookComponent
+  ]
 })
 export class BookModule {}

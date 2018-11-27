@@ -1,0 +1,5 @@
+<app-book-form
+  *ngIf="(book$ | async) as book"
+  [book]="book"
+  (submitEv)="onSubmit($event)"
+></app-book-form>
