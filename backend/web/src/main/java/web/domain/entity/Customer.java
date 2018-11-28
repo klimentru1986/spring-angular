@@ -1,7 +1,6 @@
 package web.domain.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.RowId;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -25,7 +24,7 @@ public class Customer {
     @NotNull
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "additional_info_id")
     @NotNull
     private CustomerAdditionalInfo additionalInfo;
