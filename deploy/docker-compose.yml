@@ -8,7 +8,16 @@ services:
     ports:
       - 80:80
 
-  postgres_local:
+  backend:
+    container_name: backend-local
+    image: backend:latest
+    command: java -jar 
+      -Dspring.datasource.url=jdbc:postgresql://postgres-local:5432/spring_angular
+      web-1.0.jar
+    ports:
+      - "8080:8080"
+
+  postgres-local:
     container_name: postgres-local
     image: postgres
     ports:
