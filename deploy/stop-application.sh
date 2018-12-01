@@ -1,0 +1,1 @@
+docker stop frontend-local backend-local postgres-local
