@@ -1,5 +1,6 @@
 package web.services.customer;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.DAO.customer.CustomerDAO;
@@ -8,10 +9,10 @@ import web.domain.entity.Customer;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
-    @Autowired
-    CustomerDAO customerDAO;
+    private final CustomerDAO customerDAO;
 
     @Override
     public List<Customer> getCustomers() {

@@ -1,5 +1,6 @@
 package web.controllers.book;
 
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,11 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/book")
+@RequiredArgsConstructor
 public class BookController {
 
-    @Autowired
-    ModelMapper mapper;
-
-    @Autowired
-    BookService bookService;
+    private final ModelMapper mapper;
+    private final BookService bookService;
 
     @GetMapping
     public List<BookDTO> getBooks() {

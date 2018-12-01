@@ -1,5 +1,6 @@
 package web.controllers.customer;
 
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,11 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/customer")
+@RequiredArgsConstructor
 public class CustomerController {
 
-    @Autowired
-    private ModelMapper modelMapper;
-
-    @Autowired
-    private CustomerService customerService;
+    private final ModelMapper modelMapper;
+    private final CustomerService customerService;
 
     @GetMapping
     public List<CustomerDTO> getCustomers() {
