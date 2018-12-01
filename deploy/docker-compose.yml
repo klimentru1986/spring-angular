@@ -1,8 +1,15 @@
-version: "2"
+version: "3.5"
 
 services:
+  frontend:
+    container_name: frontend-local
+    image: frontend:latest
+    build: ../frontend/web
+    ports:
+      - 80:80
+
   postgres_local:
-    container_name: postgres_local
+    container_name: postgres-local
     image: postgres
     ports:
       - 5432:5432
