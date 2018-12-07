@@ -1,4 +1,4 @@
-package web.controllers.book.dto;
+package web.controllers.DTO.book;
 
 import lombok.Data;
 

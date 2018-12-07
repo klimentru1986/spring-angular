@@ -2,11 +2,10 @@ package web.controllers.customer;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import web.controllers.customer.dto.CustomerDTO;
+import web.controllers.DTO.customer.CustomerDTO;
 import web.controllers.exceptionHandler.CustomNotFoundException;
 import web.domain.entity.Customer;
 import web.services.customer.CustomerService;
