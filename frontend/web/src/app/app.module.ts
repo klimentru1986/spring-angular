@@ -8,9 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { AppRouterModule } from './app-router/app-router.module';
 import { CoreModule } from './core/core.module';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreDataModule } from './store/store.module';
-import { XhrInterceptor } from './core/services/xhr-interceptor/xhr-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,9 +22,6 @@ import { XhrInterceptor } from './core/services/xhr-interceptor/xhr-interceptor.
     SharedModule,
     HttpClientModule,
     StoreDataModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

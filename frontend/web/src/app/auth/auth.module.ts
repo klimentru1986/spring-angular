@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthServiceModule } from './services/auth-service.module';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -17,7 +18,8 @@ const routes: Routes = [
     RouterModule,
     RouterModule.forChild(routes),
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthServiceModule
   ],
   declarations: [AuthComponent, LoginComponent]
 })
