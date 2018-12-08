@@ -8,12 +8,9 @@ import { SharedModule } from './shared/shared.module';
 import { AppRouterModule } from './app-router/app-router.module';
 import { CoreModule } from './core/core.module';
 
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { NgrxDataModule } from 'ngrx-data';
-import { entityConfig } from './store/ngrx-data-config';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreDataModule } from './store/store.module';
+import { XhrInterceptor } from './core/services/xhr-interceptor/xhr-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,14 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25
-    }),
-    NgrxDataModule.forRoot(entityConfig)
+    StoreDataModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

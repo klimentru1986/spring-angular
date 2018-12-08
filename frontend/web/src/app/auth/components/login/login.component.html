@@ -1,0 +1,13 @@
+<div class="container">
+  <form class="login-form" [formGroup]="loginForm">
+    <mat-form-field>
+      <input matInput formControlName="login" placeholder="Логин" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="password" placeholder="Пароль" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">ВОЙТИ</button>
+  </form>
+</div>
